@@ -1,0 +1,17 @@
+{
+  "name": "discord-tag-role-bot",
+  "version": "1.0.0",
+  "description": "A Discord bot that manages roles based on user tags.",
+  "main": "senotron.js",
+  "scripts": {
+    "start": "node senotron.js"
+  },
+  "author": "senotron",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "discord.js": "latest"
+  },
+}
