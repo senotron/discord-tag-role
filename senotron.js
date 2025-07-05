@@ -4,7 +4,6 @@ const TOKEN = '';
 const TAG = 'DTX';
 const ROLE_ID = '';
 const GUILD_ID = '';
-const STATUS_CHANNEL_ID = '';
 const LOG_CHANNEL_ID = '';
 
 const client = new Client({
@@ -20,8 +19,7 @@ const client = new Client({
 const userCooldowns = new Map();
 
 async function checkTags(guild, logChannel) {
-  const statusChannel = await client.channels.fetch(STATUS_CHANNEL_ID).catch(() => null);
-  if (!statusChannel || !logChannel) return;
+  if (!logChannel) return;
 
   const members = await guild.members.fetch();
 
@@ -31,8 +29,9 @@ async function checkTags(guild, logChannel) {
 
     try {
       const userData = await client.rest.get(`/users/${member.id}`);
+      const currentGuildID = userData?.clan?.identity_guild_id || null;
       const currentTag = userData?.clan?.tag || null;
-      const hasTag = currentTag === TAG;
+      const hasTag = currentGuildID === GUILD_ID && currentTag === TAG;
       const hasRole = member.roles.cache.has(ROLE_ID);
 
       if (hasTag && !hasRole) {
@@ -76,7 +75,6 @@ client.once('ready', async () => {
 
 client.on('messageCreate', async (msg) => {
   if (!msg.guild || msg.author.bot) return;
-  if(msg.channel.id !== "1373684808605237378") return;
   if (msg.content.toLowerCase() !== '!check') return;
 
   const cooldown = 1000 * 60 * 30;
