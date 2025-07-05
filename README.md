@@ -8,7 +8,7 @@ A Discord bot that automatically assigns or removes a role based on whether a us
 - Assigns a role if the member has the tag and doesn't already have the role.
 - Removes the role if the member no longer has the tag but still has the role.
 - Logs role changes in a designated log channel with embedded messages.
-- Manual user check with a command `!check` in a specific channel with a 30-minute cooldown.
+- Manual user check with a command `!check` with a 30-minute cooldown.
 - Rate limiting included to avoid hitting Discord API rate limits.
 
 ## Requirements
@@ -24,9 +24,8 @@ Update the following constants in the source code:
 - `TAG`: The tag to check for (e.g., `'DTX'`).
 - `ROLE_ID`: The ID of the role to assign/remove.
 - `GUILD_ID`: The ID of your Discord server.
-- `STATUS_CHANNEL_ID`: The ID of the status channel (used internally).
 - `LOG_CHANNEL_ID`: The ID of the channel where logs will be sent.
-- `!check` command is only accepted in the channel with ID `""`. Update this if needed.
+
 
 ## Installation
 
@@ -38,7 +37,7 @@ Update the following constants in the source code:
 ## Usage
 
 - The bot will automatically check members every 10 minutes.
-- Users can manually check their tag and role status by sending `!check` in the specified channel.
+- Users can manually check their tag and role status by sending `!check`.
 - If a user tries to run `!check` within 30 minutes of their last use, they will receive a cooldown message.
 
 ## License
