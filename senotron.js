@@ -40,7 +40,7 @@ async function checkTags(guild, logChannel) {
           embeds: [
             new EmbedBuilder()
               .setTitle('🎉 Role Added')
-              .setDescription(`<@${member.id}> received the **DTX** tag and was given the <@&${ROLE_ID}> role.`)
+              .setDescription(`<@!${member.id}> received the **DTX** tag and was given the <@&${ROLE_ID}> role.`)
               .setColor('Green')
               .setTimestamp()
           ]
@@ -51,7 +51,7 @@ async function checkTags(guild, logChannel) {
           embeds: [
             new EmbedBuilder()
               .setTitle('⚠️ Role Removed')
-              .setDescription(`<@${member.id}> changed tag and the <@&${ROLE_ID}> role was removed.`)
+              .setDescription(`<@!${member.id}> changed tag and the <@&${ROLE_ID}> role was removed.`)
               .setColor('Red')
               .setTimestamp()
           ]
@@ -127,7 +127,7 @@ client.on('messageCreate', async (msg) => {
         embeds: [
           new EmbedBuilder()
             .setTitle('🎉 Role Added')
-            .setDescription(`<@${member.id}> received the **DTX** tag and was given the role.`)
+            .setDescription(`<@!${member.id}> received the **DTX** tag and was given the role.`)
             .setColor('Green')
             .setTimestamp()
         ]
@@ -140,7 +140,7 @@ client.on('messageCreate', async (msg) => {
         embeds: [
           new EmbedBuilder()
             .setTitle('⚠️ Role Removed')
-            .setDescription(`<@${member.id}> changed their tag and the role was removed.`)
+            .setDescription(`<@!${member.id}> changed tag and the role was removed.`)
             .setColor('Red')
             .setTimestamp()
         ]
@@ -149,7 +149,7 @@ client.on('messageCreate', async (msg) => {
 
     const resultEmbed = new EmbedBuilder()
       .setTitle('📋 Check Result')
-      .setDescription(`**User:** <@${member.id}>\n**Current Tag:** \`${currentTag}\`\n\n**Role Action:**\n${action}`)
+      .setDescription(`**User:** <@!${member.id}>\n**Current Tag:** \`${currentTag}\`\n\n**Role Action:**\n${action}`)
       .setColor(color)
       .setTimestamp();
 
