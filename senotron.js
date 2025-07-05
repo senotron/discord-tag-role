@@ -51,7 +51,7 @@ async function checkTags(guild, logChannel) {
           embeds: [
             new EmbedBuilder()
               .setTitle('⚠️ Role Removed')
-              .setDescription(`<@${member.id}> changed their tag and the <@&${ROLE_ID}> role was removed.`)
+              .setDescription(`<@${member.id}> changed tag and the <@&${ROLE_ID}> role was removed.`)
               .setColor('Red')
               .setTimestamp()
           ]
